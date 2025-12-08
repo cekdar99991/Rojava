@@ -1,181 +1,220 @@
-<!DOCTYPE html> <html lang="ar"> <head> <meta charset="UTF-8"> <title>RojAva - PS4 Jailbreak</title> <style> body { margin: 0; padding: 0; background-image: url('bg.jpg'); background-size: cover; background-position: center; background-attachment: fixed; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #fff; text-align: center; }
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>RojAva - PS4 Jailbreak</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      text-align: center;
+    }
 
-.container {
-  background-color: rgba(0, 0, 0, 0.6);
-  margin: 40px auto;
-  padding: 20px;
-  max-width: 650px;
-  border-radius: 15px;
-  box-shadow: 0 0 25px #00f, 0 0 50px #00f;
-  animation: glowBox 4s infinite alternate;
-}
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      margin: 40px auto;
+      padding: 20px;
+      max-width: 650px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px #00f, 0 0 50px #00f;
+      animation: glowBox 4s infinite alternate;
+    }
 
-@keyframes glowBox {
-  from { box-shadow: 0 0 25px #00f; }
-  to { box-shadow: 0 0 50px #00f, 0 0 80px #00f; }
-}
+    @keyframes glowBox {
+      from { box-shadow: 0 0 25px #00f; }
+      to { box-shadow: 0 0 50px #00f, 0 0 80px #00f; }
+    }
 
-.logo-text {
-  font-size: 40px;
-  font-weight: bold;
-  color: #00f;
-  text-shadow: 0 0 15px #00f, 0 0 30px #00f;
-  margin-bottom: 15px;
-  letter-spacing: 2px;
-  animation: logoPulse 3s infinite alternate;
-}
+    .logo-text {
+      font-size: 40px;
+      font-weight: bold;
+      color: #00f;
+      text-shadow: 0 0 15px #00f, 0 0 30px #00f;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+      animation: logoPulse 3s infinite alternate;
+    }
 
-@keyframes logoPulse {
-  from { transform: scale(1); text-shadow: 0 0 15px #00f; }
-  to { transform: scale(1.1); text-shadow: 0 0 40px #00f, 0 0 80px #00f; }
-}
+    @keyframes logoPulse {
+      from { transform: scale(1); text-shadow: 0 0 15px #00f; }
+      to { transform: scale(1.1); text-shadow: 0 0 40px #00f, 0 0 80px #00f; }
+    }
 
-h2 {
-  font-size: 26px;
-  color: #00f;
-  text-shadow: 0 0 12px #00f, 0 0 25px #00f;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  font-weight: bold;
-  animation: sectionGlow 3s infinite alternate;
-}
+    h2 {
+      font-size: 26px;
+      color: #00f;
+      text-shadow: 0 0 12px #00f, 0 0 25px #00f;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      animation: sectionGlow 3s infinite alternate;
+    }
 
-@keyframes sectionGlow {
-  from { text-shadow: 0 0 12px #00f; }
-  to { text-shadow: 0 0 30px #00f, 0 0 60px #00f; }
-}
+    @keyframes sectionGlow {
+      from { text-shadow: 0 0 12px #00f; }
+      to { text-shadow: 0 0 30px #00f, 0 0 60px #00f; }
+    }
 
-.buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
 
-.buttons button {
-  padding: 12px 25px;
-  font-size: 18px;
-  background-color: #00f;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 0 15px #00f, 0 0 30px #00f;
-  width: 85%;
-  max-width: 320px;
-  color: #fff;
-  font-weight: bold;
-  letter-spacing: 1px;
-  position: relative;
-  overflow: hidden;
-}
+    .buttons button {
+      padding: 12px 25px;
+      font-size: 18px;
+      background-color: #00f;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #00f, 0 0 30px #00f;
+      width: 85%;
+      max-width: 320px;
+      color: #fff;
+      font-weight: bold;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+    }
 
-.buttons button::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: rgba(255,255,255,0.2);
-  transform: skewX(-20deg);
-  animation: shine 3s infinite;
-}
+    .buttons button::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.2);
+      transform: skewX(-20deg);
+      animation: shine 3s infinite;
+    }
 
-@keyframes shine {
-  0% { left: -100%; }
-  50% { left: 100%; }
-  100% { left: 100%; }
-}
+    @keyframes shine {
+      0% { left: -100%; }
+      50% { left: 100%; }
+      100% { left: 100%; }
+    }
 
-.buttons button:hover {
-  background-color: #009;
-  box-shadow: 0 0 25px #00f, 0 0 50px #00f;
-  transform: scale(1.05);
-}
+    .buttons button:hover {
+      background-color: #009;
+      box-shadow: 0 0 25px #00f, 0 0 50px #00f;
+      transform: scale(1.05);
+    }
 
-.footer {
-  margin-top: 40px;
-  font-size: 15px;
-  color: #ccc;
-  text-shadow: 0 0 8px #00f;
-  font-weight: 500;
-  animation: footerPulse 4s infinite alternate;
-}
+    .footer {
+      margin-top: 40px;
+      font-size: 15px;
+      color: #ccc;
+      text-shadow: 0 0 8px #00f;
+      font-weight: 500;
+      animation: footerPulse 4s infinite alternate;
+    }
 
-@keyframes footerPulse {
-  from { text-shadow: 0 0 8px #00f; }
-  to { text-shadow: 0 0 20px #00f, 0 0 40px #00f; }
-}
+    @keyframes footerPulse {
+      from { text-shadow: 0 0 8px #00f; }
+      to { text-shadow: 0 0 20px #00f, 0 0 40px #00f; }
+    }
 
-.rojava-smoke {
-  font-size: 42px;
-  font-weight: bold;
-  color: #00f;
-  text-shadow: 0 0 15px #00f, 0 0 30px #00f;
-  margin-top: 30px;
-  animation: rojavaGlow 2.5s infinite alternate;
-  position: relative;
-}
+    .rojava-smoke {
+      font-size: 42px;
+      font-weight: bold;
+      color: #00f;
+      text-shadow: 0 0 15px #00f, 0 0 30px #00f;
+      margin-top: 30px;
+      animation: rojavaGlow 2.5s infinite alternate;
+      position: relative;
+    }
 
-@keyframes rojavaGlow {
-  from { text-shadow: 0 0 15px #00f; transform: scale(1); }
-  to { text-shadow: 0 0 40px #00f, 0 0 80px #00f; transform: scale(1.05); }
-}
+    @keyframes rojavaGlow {
+      from { text-shadow: 0 0 15px #00f; transform: scale(1); }
+      to { text-shadow: 0 0 40px #00f, 0 0 80px #00f; transform: scale(1.05); }
+    }
 
-.rojava-smoke::after {
-  content: "";
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 120px;
-  background: radial-gradient(circle, rgba(0,240,255,0.3) 0%, transparent 70%);
-  animation: smokeRise 3s infinite ease-in-out;
-}
+    .rojava-smoke::after {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(0,240,255,0.3) 0%, transparent 70%);
+      animation: smokeRise 3s infinite ease-in-out;
+    }
 
-@keyframes smokeRise {
-  0% { transform: translateX(-50%) translateY(0) scale(1); opacity: 0.4; }
-  50% { transform: translateX(-50%) translateY(-20px) scale(1.2); opacity: 0.2; }
-  100% { transform: translateX(-50%) translateY(-40px) scale(1.4); opacity: 0; }
-}
+    @keyframes smokeRise {
+      0% { transform: translateX(-50%) translateY(0) scale(1); opacity: 0.4; }
+      50% { transform: translateX(-50%) translateY(-20px) scale(1.2); opacity: 0.2; }
+      100% { transform: translateX(-50%) translateY(-40px) scale(1.4); opacity: 0; }
+    }
 
-</style> </head> <body> <div class="container"> <div class="logo-text">Ali Osman</div> <p class="info">📍سوريا-الحسكة</p> <p class="info">📞 0938372794</p>
+    /* Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,50,0.9);
+      padding: 20px 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 25px #00f, 0 0 50px #00f;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      text-shadow: 0 0 15px #00f, 0 0 30px #00f;
+      animation: popupGlow 2s infinite alternate;
+      z-index: 9999;
+    }
 
-<h2>🛠️ أدوات الجيلبريك</h2>
-<div class="buttons">
-  <button onclick="loadPayload('goldhen.bin')">تشغيل GoldHEN</button>
-  <button onclick="loadPayload('payload2.bin')">تشغيل بايلودر آخر</button>
-</div>
+    @keyframes popupGlow {
+      from { box-shadow: 0 0 25px #00f; }
+      to { box-shadow: 0 0 50px #00f, 0 0 80px #00f; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-text">Ali Osman</div>
+    <p class="info">📍سوريا-الحسكة</p>
+    <p class="info">📞 0938372794</p>
 
-<h2>🧩 أدوات مخصصة</h2>
-<div class="buttons">
-  <button onclick="loadPayload('app2usb.bin')">🔌 APP2USB</button>
-  <button onclick="loadPayload('backup.bin')">📦 PKG BACKUP</button>
-  <button onclick="loadPayload('web-rte.bin')">🌐 WEB RTE</button>
-  <button onclick="loadPayload('ftr.bin')">🧠 FTR</button>
-  <button onclick="loadPayload('ps4-debug.bin')">🛠️ PS4 DEBUG</button>
-</div>
+    <h2>🛠️ أدوات الجيلبريك</h2>
+    <div class="buttons">
+      <button onclick="loadPayload('goldhen.bin')">تشغيل GoldHEN</button>
+      <button onclick="loadPayload('payload2.bin')">تشغيل بايلودر آخر</button>
+    </div>
 
-<div class="footer">
-  <div class="rojava-smoke">RojAva</div>
-  © 2025 Ali Osman تصميم
-</div>
+    <h2>🧩 أدوات مخصصة</h2>
+    <div class="buttons">
+      <button onclick="loadPayload('app2usb.bin')">🔌 APP2USB</button>
+      <button onclick="loadPayload('backup.bin')">📦 PKG BACKUP</button>
+      <button onclick="loadPayload('web-rte.bin')">🌐 WEB RTE</button>
+      <button onclick="loadPayload('ftr.bin')">🧠 FTR</button>
+      <button onclick="loadPayload('ps4-debug.bin')">🛠️ PS4 DEBUG</button>
+    </div>
 
-</div>
+    <div class="footer">
+      <div class="rojava-smoke">RojAva</div>
+      © 2025 Ali Osman تصميم
+    </div>
+  </div>
 
-<script type="module"> import { sendPayload } from './send.mjs';
+  <!-- Popup -->
+  <div id="popup" class="popup">
+    <div id="popup-text">⏳ الرجاء الانتظار...</div>
+  </div>
 
-async function loadPayload(payloadName) {
-  try {
-    const response = await fetch("payloads/" + payloadName);
-    const payload = await response.arrayBuffer();
-    await sendPayload(payload);
-    alert("✅ تم إرسال البايلودر: " + payloadName);
-  } catch (err) {
-    alert("❌ خطأ بتحميل البايلودر: " + payloadName);
-    console.error(err);
-  }
-}
+  <!-- ربط سكربتات PSFree -->
+  <script type="module">
+    import { sendPayload } from './send.mjs';
 
-</script> </body> </html>
+    function showPopup(message) {
