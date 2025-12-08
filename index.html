@@ -148,6 +148,37 @@
       from { text-shadow: 0 0 8px #00f; }
       to { text-shadow: 0 0 20px #00f, 0 0 40px #00f; }
     }
+.rojava-smoke {
+  font-size: 42px;
+  font-weight: bold;
+  color: #00f;
+  text-shadow: 0 0 15px #00f, 0 0 30px #00f;
+  margin-top: 30px;
+  animation: rojavaGlow 2.5s infinite alternate;
+  position: relative;
+}
+
+@keyframes rojavaGlow {
+  from { text-shadow: 0 0 15px #00f; transform: scale(1); }
+  to { text-shadow: 0 0 40px #00f, 0 0 80px #00f; transform: scale(1.05); }
+}
+.rojava-smoke::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(0,240,255,0.3) 0%, transparent 70%);
+  animation: smokeRise 3s infinite ease-in-out;
+}
+
+@keyframes smokeRise {
+  0% { transform: translateX(-50%) translateY(0) scale(1); opacity: 0.4; }
+  50% { transform: translateX(-50%) translateY(-20px) scale(1.2); opacity: 0.2; }
+  100% { transform: translateX(-50%) translateY(-40px) scale(1.4); opacity: 0; }
+}
   </style>
 </head>
 <body>
@@ -167,6 +198,7 @@
     </div>
 
     <div class="footer">
+<div class="rojava-smoke">RojAva</div>
        © 2025 Ali Osman تصميم
     </div>
   </div>
