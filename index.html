@@ -31,21 +31,23 @@
       to { box-shadow: 0 0 50px #00f, 0 0 80px #00f; }
     }
 
-    .logo img {
-      width: 160px;
-      height: auto;
+    .logo-text {
+      font-size: 40px;
+      font-weight: bold;
+      color: #00f;
+      text-shadow: 0 0 15px #00f, 0 0 30px #00f;
       margin-bottom: 15px;
-      filter: drop-shadow(0 0 15px #00f);
+      letter-spacing: 2px;
       animation: logoPulse 3s infinite alternate;
     }
 
     @keyframes logoPulse {
-      from { transform: scale(1); filter: drop-shadow(0 0 15px #00f); }
-      to { transform: scale(1.1); filter: drop-shadow(0 0 30px #00f); }
+      from { transform: scale(1); text-shadow: 0 0 15px #00f; }
+      to { transform: scale(1.1); text-shadow: 0 0 40px #00f, 0 0 80px #00f; }
     }
 
     h1 {
-      font-size: 36px;
+      font-size: 32px;
       color: #00f;
       text-shadow: 0 0 15px #00f, 0 0 30px #00f;
       margin-bottom: 15px;
@@ -151,13 +153,12 @@
 <body>
 
   <div class="container">
-    <div class="logo">
-      <img src="logo.png" alt="Logo">
-    </div>
+    <!-- بدل الصورة، نص Ali Osman ينيض -->
+    <div class="logo-text">Ali Osman</div>
 
-    <h1>🔵</h1>
-    <p class="info">📍 سوريا - الحسكة</p>
-    <p class="info">📞 0938372794 </p>
+    <h1>🔵 متجر RojAva</h1>
+    <p class="info">📍 النشوة الشرقية</p>
+    <p class="info">📞 00963938372794</p>
 
     <h2>🛠️ أدوات الجيلبريك</h2>
     <div class="buttons">
@@ -166,7 +167,7 @@
     </div>
 
     <div class="footer">
-       Ali Osman تصميم© 2025🔵
+      تصميم Ali Osman © 2025
     </div>
   </div>
 
