@@ -2,7 +2,7 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>RojAva - Ali Osman</title>
+  <title>RojAva - PS4 Jailbreak</title>
   <style>
     body {
       margin: 0;
@@ -10,39 +10,172 @@
       background-image: url('bg.jpg');
       background-size: cover;
       background-position: center;
-      font-family: sans-serif;
-      color: #00ff88;
+      background-attachment: fixed;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
       text-align: center;
     }
-    .logo {
-      margin-top: 50px;
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      margin: 40px auto;
+      padding: 20px;
+      max-width: 650px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px #00f, 0 0 50px #00f;
+      animation: glowBox 4s infinite alternate;
     }
+
+    @keyframes glowBox {
+      from { box-shadow: 0 0 25px #00f; }
+      to { box-shadow: 0 0 50px #00f, 0 0 80px #00f; }
+    }
+
     .logo img {
-      width: 180px;
+      width: 160px;
       height: auto;
+      margin-bottom: 15px;
+      filter: drop-shadow(0 0 15px #00f);
+      animation: logoPulse 3s infinite alternate;
     }
+
+    @keyframes logoPulse {
+      from { transform: scale(1); filter: drop-shadow(0 0 15px #00f); }
+      to { transform: scale(1.1); filter: drop-shadow(0 0 30px #00f); }
+    }
+
     h1 {
       font-size: 36px;
-      margin-top: 20px;
-      text-shadow: 0 0 10px #00ff88;
+      color: #00f;
+      text-shadow: 0 0 15px #00f, 0 0 30px #00f;
+      margin-bottom: 15px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      animation: titleGlow 2s infinite alternate;
     }
-    .footer {
-      position: fixed;
-      bottom: 10px;
+
+    @keyframes titleGlow {
+      from { text-shadow: 0 0 15px #00f; transform: scale(1); }
+      to { text-shadow: 0 0 40px #00f, 0 0 80px #00f; transform: scale(1.05); }
+    }
+
+    .info {
+      font-size: 18px;
+      margin: 8px 0;
+      background-color: rgba(0,0,0,0.4);
+      padding: 8px 14px;
+      border-radius: 8px;
+      display: inline-block;
+      font-weight: 600;
+      box-shadow: 0 0 10px #00f;
+    }
+
+    h2 {
+      font-size: 26px;
+      color: #00f;
+      text-shadow: 0 0 12px #00f, 0 0 25px #00f;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      animation: sectionGlow 3s infinite alternate;
+    }
+
+    @keyframes sectionGlow {
+      from { text-shadow: 0 0 12px #00f; }
+      to { text-shadow: 0 0 30px #00f, 0 0 60px #00f; }
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .buttons button {
+      padding: 12px 25px;
+      font-size: 18px;
+      background-color: #00f;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #00f, 0 0 30px #00f;
+      width: 85%;
+      max-width: 320px;
+      color: #fff;
+      font-weight: bold;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .buttons button::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
       width: 100%;
-      font-size: 14px;
+      height: 100%;
+      background: rgba(255,255,255,0.2);
+      transform: skewX(-20deg);
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -100%; }
+      50% { left: 100%; }
+      100% { left: 100%; }
+    }
+
+    .buttons button:hover {
+      background-color: #009;
+      box-shadow: 0 0 25px #00f, 0 0 50px #00f;
+      transform: scale(1.05);
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 15px;
       color: #ccc;
+      text-shadow: 0 0 8px #00f;
+      font-weight: 500;
+      animation: footerPulse 4s infinite alternate;
+    }
+
+    @keyframes footerPulse {
+      from { text-shadow: 0 0 8px #00f; }
+      to { text-shadow: 0 0 20px #00f, 0 0 40px #00f; }
     }
   </style>
 </head>
 <body>
-  <div class="logo">
-    <img src="logo.png" alt="Ali Osman Logo">
-    <h1>RojAva</h1>
+
+  <div class="container">
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+    </div>
+
+    <h1>🔵</h1>
+    <p class="info">📍 سوريا - الحسكة</p>
+    <p class="info">📞 0938372794 </p>
+
+    <h2>🛠️ أدوات الجيلبريك</h2>
+    <div class="buttons">
+      <button onclick="loadPayload('goldhen.bin')">تشغيل GoldHEN</button>
+      <button onclick="loadPayload('payload2.bin')">تشغيل بايلودر آخر</button>
+    </div>
+
+    <div class="footer">
+       Ali Osman تصميم© 2025🔵
+    </div>
   </div>
 
-  <div class="footer">
-    متجر تعديل وبرمجة بلايستيشن | Ali Osman
-  </div>
+  <script>
+    function loadPayload(payloadName) {
+      alert("يتم الآن إرسال البايلودر: " + payloadName);
+      // هنا تقدر تضيف كود إرسال البايلودر حسب سكربت PSFree
+    }
+  </script>
+
 </body>
 </html>
