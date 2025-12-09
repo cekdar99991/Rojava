@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>RojAva - PS4 Jailbreak</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      text-align: center;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      margin: 40px auto;
+      padding: 20px;
+      max-width: 750px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px #00f, 0 0 50px #00f;
+    }
+
+    h2 {
+      font-size: 26px;
+      color: #00f;
+      text-shadow: 0 0 12px #00f, 0 0 25px #00f;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .buttons-row {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .buttons-row button {
+      flex: 1;
+      padding: 12px 20px;
+      font-size: 16px;
+      background-color: #00f;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #00f, 0 0 30px #00f;
+      color: #fff;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .buttons-row button:hover {
+      background-color: #009;
+      transform: scale(1.05);
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 15px;
+      color: #ccc;
+      text-shadow: 0 0 8px #00f;
+      font-weight: 500;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,50,0.9);
+      padding: 20px 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 25px #00f, 0 0 50px #00f;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-text">Ali Osman</div>
+    <p class="info">📍سوريا-الحسكة</p>
+    <p class="info">📞 0938372794</p>
+
+    <h2>🛠️ أدوات الجيلبريك</h2>
+    <!-- أول 3 أزرار أفقية -->
+    <div class="buttons-row">
+      <button onclick="loadPayload('payloads/goldhen.bin')">GoldHEN</button>
+      <button onclick="loadPayload('payloads/app2usb.bin')">APP2USB</button>
+      <button onclick="loadPayload('payloads/ftp.bin')">FTP</button>
+    </div>
+
+    <h2>🧩 أدوات مخصصة</h2>
+    <!-- بقية الأزرار تحتهم بشكل صفوف أفقية -->
+    <div class="buttons-row">
+      <button onclick="loadPayload('payloads/backup.bin')">PKG BACKUP</button>
+      <button onclick="loadPayload('payloads/WebRTE.bin')">WEB RTE</button>
+      <button onclick="loadPayload('payloads/ftr.bin')">FTR</button>
+    </div>
+    <div class="buttons-row">
+      <button onclick="loadPayload('payloads/ps4-debug.bin')">PS4 DEBUG</button>
+      <button onclick="loadPayload('payloads/payload2.bin')">Payload 2</button>
+      <button onclick="loadPayload('payloads/payload3.bin')">Payload 3</button>
+    </div>
+
+    <div class="footer">
+      <div class="rojava-smoke">RojAva</div>
+      © 2025 Ali Osman تصميم
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div id="popup" class="popup">
+    <div id="popup-text">⏳ الرجاء الانتظار...</div>
+  </div>
+
+  <!-- سكربت BinLoader + إرسال البايلود -->
+  <script src="psfree.mjs"></script>
+  <script>
+    function showPopup(message) {
+      const popup = document.getElementById('popup');
+      const popupText = document.getElementById('popup-text');
+      popupText.textContent = message;
+      popup.style.display = 'block';
+      setTimeout(() => { popup.style.display = 'none'; }, 3000);
+    }
+
+    async function loadPayload(file) {
+      showPopup("⏳ جاري إرسال " + file);
+      try {
+        const response = await fetch(file);
+        const payload = await response.arrayBuffer();
+
+        // إرسال البايلود عبر WebSocket للـBinLoader
+        const socket = new WebSocket("ws://localhost:9020");
+        socket.binaryType = "arraybuffer";
+        socket.onopen = () => {
+          socket.send(payload);
+          showPopup("✅ تم إرسال " + file);
+          socket.close();
+        };
+        socket.onerror = () => {
+          showPopup("❌ فشل الاتصال بالـBinLoader");
+        };
+      } catch (e) {
+        showPopup("❌ فشل الإرسال: " + e.message);
+      }
+    }
+  </script>
+</body>
+</html>
