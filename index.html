@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>RojAva - PS4 Host</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      text-align: center;
+    }
+    .container {
+      background: rgba(0,0,0,0.55);
+      margin: 40px auto;
+      padding: 25px;
+      max-width: 800px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px #6a00ff, 0 0 50px #00c3ff;
+    }
+    .logo-text {
+      font-size: 42px;
+      font-weight: bold;
+      background: linear-gradient(90deg,#00c3ff,#6a00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px #00c3ff;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+    .info {
+      margin: 0;
+      opacity: 0.85;
+    }
+    h2 {
+      font-size: 26px;
+      color: #00c3ff;
+      text-shadow: 0 0 12px #00c3ff, 0 0 25px #6a00ff;
+      margin-top: 28px;
+      margin-bottom: 18px;
+      font-weight: bold;
+    }
+    .buttons-row {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+    .buttons-row button {
+      flex: 1 1 30%;
+      min-width: 160px;
+      padding: 14px 22px;
+      font-size: 16px;
+      background: linear-gradient(135deg,#6a00ff,#00c3ff);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 20px #00c3ff, 0 0 40px #6a00ff;
+      color: #fff;
+      font-weight: bold;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+    .buttons-row button:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 25px #00c3ff, 0 0 50px #6a00ff;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 15px;
+      color: #ccc;
+      text-shadow: 0 0 8px #00c3ff;
+      font-weight: 500;
+    }
+    /* Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(20,20,50,0.95);
+      padding: 20px 35px;
+      border-radius: 14px;
+      box-shadow: 0 0 25px #00c3ff, 0 0 50px #6a00ff;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      z-index: 9999;
+    }
+    /* Progress bar */
+    .progress-wrap {
+      margin: 18px auto 12px;
+      max-width: 520px;
+      text-align: left;
+    }
+    .progress-title {
+      font-size: 15px;
+      color: #a7c0ff;
+      margin-bottom: 6px;
+      text-shadow: 0 0 8px #00c3ff;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 14px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 999px;
+      overflow: hidden;
+      box-shadow: 0 0 10px #00c3ff inset;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #6a00ff, #00c3ff);
+      box-shadow: 0 0 15px #00c3ff, 0 0 30px #6a00ff;
+      transition: width 0.25s ease;
+    }
+    .progress-percent {
+      margin-top: 6px;
+      font-size: 14px;
+      color: #cfe2ff;
+      opacity: 0.9;
+    }
+    .hint {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #9fb7ff;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-text">Ali Osman</div>
+    <p class="info">📍 سوريا - الحسكة</p>
+    <p class="info">📞 0938372794</p>
+
+    <!-- Progress -->
+    <div class="progress-wrap">
+      <div class="progress-title">تشغيل BinLoader وتخزين الصفحة في الكاش</div>
+      <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+      <div id="progress-percent" class="progress-percent">0%</div>
+      <div id="progress-hint" class="hint">الرجاء الانتظار…</div>
+    </div>
+
+    <h2>🛠️ أدوات الجيلبريك</h2>
+    <div class="buttons-row">
+      <button onclick="loadPayload('payloads/goldhen.bin')">GoldHEN</button>
+      <button onclick="loadPayload('payloads/app2usb.bin')">APP2USB</button>
+      <button onclick="loadPayload('payloads/ftp.bin')">FTP</button>
+    </div>
+
+    <h2>🧩 أدوات إضافية</h2>
+    <div class="buttons-row">
+      <button onclick="loadPayload('payloads/backup.bin')">PKG BACKUP</button>
+      <button onclick="loadPayload('payloads/WebRTE.bin')">WEB RTE</button>
+      <button onclick="loadPayload('payloads/ps4-debug.bin')">PS4 DEBUG</button>
+    </div>
+
+    <div class="footer">
+      <div>RojAva</div>
+      © 2025 Ali Osman تصميم
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div id="popup" class="popup">
+    <div id="popup-text">⏳ الرجاء الانتظار...</div>
+  </div>
+
+  <!-- Exploit + Cache + Payload -->
+  <script>
+    function showPopup(message) {
+      const popup = document.getElementById('popup');
+      const popupText = document.getElementById('popup-text');
+      popupText.textContent = message;
+      popup.style.display = 'block';
+      setTimeout(() => { popup.style.display = 'none'; }, 2500);
+    }
+    function setProgress(p) {
+      document.getElementById('progress-fill').style.width = p + '%';
+      document.getElementById('progress-percent').textContent = p + '%';
+    }
+    function setHint(t) {
+      document.getElementById('progress-hint').textContent = t;
+    }
+
+    async function loadPayload(path) {
+      showPopup("⏳ جاري إرسال " + path);
+      try {
+        const res = await fetch(path);
+        if (!res.ok) throw new Error("لم يتم العثور على الملف");
+        const payload = await res.arrayBuffer();
+
+        // إرسال عبر HTTP POST بدل WebSocket
+        try {
+          await fetch("http://localhost:9020", { method: "POST", body: payload });
+          showPopup("✅ تم إرسال " + path);
+        } catch {
+          await fetch("http://localhost:9021", { method: "POST", body: payload });
+          showPopup("✅ تم إرسال " + path);
+        }
+      } catch (e) {
+        showPopup("❌ فشل الإرسال: " + e.message);
+      }
+    }
+
+    async function cacheAssets() {
+      const assets = ['bg.jpg','logo.png','index.html','psfree.mjs'];
+      let done = 0;
+      for (const url of assets) {
+        try { await fetch(url,{cache:'reload'}); } catch {}
+        done++;
+        setProgress(Math.round((done/assets.length)*100));
+      }
+      setHint("تم التخزين في الكاش — جاهز بدون
