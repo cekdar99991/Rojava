@@ -6,119 +6,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      font-family: 'Tahoma','Arial',sans-serif;
-      color: #fff;
-      text-align: center;
-      direction: rtl;
+      font-family: 'Tahoma','Arial',sans-serif; color: #fff; text-align: center; direction: rtl;
     }
     .container {
-      background: rgba(0,0,0,0.55);
-      margin: 40px auto;
-      padding: 25px;
-      max-width: 860px;
-      border-radius: 20px;
-      box-shadow: 0 0 25px #6a00ff, 0 0 50px #00c3ff;
+      background: rgba(0,0,0,0.55); margin: 40px auto; padding: 25px; max-width: 860px;
+      border-radius: 20px; box-shadow: 0 0 25px #6a00ff, 0 0 50px #00c3ff;
     }
     .logo-text {
-      font-size: 42px;
-      font-weight: bold;
+      font-size: 42px; font-weight: bold;
       background: linear-gradient(90deg,#00c3ff,#6a00ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 20px #00c3ff;
-      margin-bottom: 10px;
-      letter-spacing: 2px;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px #00c3ff; margin-bottom: 10px; letter-spacing: 2px;
     }
     .info { margin: 0; opacity: 0.85; }
     h2 {
-      font-size: 26px;
-      color: #00c3ff;
+      font-size: 26px; color: #00c3ff;
       text-shadow: 0 0 12px #00c3ff, 0 0 25px #6a00ff;
-      margin-top: 28px;
-      margin-bottom: 18px;
-      font-weight: bold;
+      margin-top: 28px; margin-bottom: 18px; font-weight: bold;
     }
     .buttons-row {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      margin-bottom: 22px;
-      flex-wrap: wrap;
+      display: flex; justify-content: center; gap: 18px; margin-bottom: 22px; flex-wrap: wrap;
     }
     .btn {
-      flex: 1 1 30%;
-      min-width: 160px;
-      padding: 14px 22px;
-      font-size: 16px;
+      flex: 1 1 30%; min-width: 160px; padding: 14px 22px; font-size: 16px;
       background: linear-gradient(135deg,#6a00ff,#00c3ff);
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
+      border: none; border-radius: 10px; cursor: pointer;
       box-shadow: 0 0 20px #00c3ff, 0 0 40px #6a00ff;
-      color: #fff;
-      font-weight: bold;
-      letter-spacing: 1px;
-      transition: transform 0.2s ease;
+      color: #fff; font-weight: bold; letter-spacing: 1px; transition: transform 0.2s ease;
     }
     .btn:hover { transform: scale(1.07); }
     .btn:disabled { opacity: 0.55; cursor: not-allowed; }
-
     .popup {
-      display: none;
-      position: fixed;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(20,20,50,0.95);
-      padding: 20px 35px;
-      border-radius: 14px;
-      box-shadow: 0 0 25px #00c3ff, 0 0 50px #6a00ff;
-      color: #fff;
-      font-size: 18px;
-      font-weight: bold;
-      z-index: 9999;
+      display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      background: rgba(20,20,50,0.95); padding: 20px 35px; border-radius: 14px;
+      box-shadow: 0 0 25px #00c3ff, 0 0 50px #6a00ff; color: #fff; font-size: 18px; font-weight: bold; z-index: 9999;
     }
-
-    .progress-wrap {
-      margin: 18px auto 12px;
-      max-width: 560px;
-      text-align: left;
-    }
-    .progress-title {
-      font-size: 15px;
-      color: #a7c0ff;
-      margin-bottom: 6px;
-      text-shadow: 0 0 8px #00c3ff;
-    }
+    .progress-wrap { margin: 18px auto 12px; max-width: 560px; text-align: left; }
+    .progress-title { font-size: 15px; color: #a7c0ff; margin-bottom: 6px; text-shadow: 0 0 8px #00c3ff; }
     .progress-bar {
-      width: 100%;
-      height: 14px;
-      background: rgba(255,255,255,0.12);
-      border-radius: 999px;
-      overflow: hidden;
-      box-shadow: 0 0 10px #00c3ff inset;
+      width: 100%; height: 14px; background: rgba(255,255,255,0.12);
+      border-radius: 999px; overflow: hidden; box-shadow: 0 0 10px #00c3ff inset;
     }
     .progress-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg,#6a00ff,#00c3ff);
-      box-shadow: 0 0 15px #00c3ff, 0 0 30px #6a00ff;
-      transition: width 0.25s ease;
+      height: 100%; width: 0%; background: linear-gradient(90deg,#6a00ff,#00c3ff);
+      box-shadow: 0 0 15px #00c3ff, 0 0 30px #6a00ff; transition: width 0.25s ease;
     }
-    .progress-percent {
-      margin-top: 6px;
-      font-size: 14px;
-      color: #cfe2ff;
-      opacity: 0.95;
-    }
-    .hint {
-      margin-top: 8px;
-      font-size: 13px;
-      color: #9fb7ff;
-      opacity: 0.95;
-    }
+    .progress-percent { margin-top: 6px; font-size: 14px; color: #cfe2ff; opacity: 0.95; }
+    .hint { margin-top: 8px; font-size: 13px; color: #9fb7ff; opacity: 0.95; }
+    .footer { margin-top: 20px; opacity: 0.8; }
   </style>
 </head>
 <body>
@@ -136,16 +73,16 @@
 
     <h2>🛠️ أدوات الجيلبريك</h2>
     <div class="buttons-row">
-      <button class="btn" onclick="loadPayload('payloads/goldhen.bin')" disabled>GoldHEN</button>
-      <button class="btn" onclick="loadPayload('payloads/app2usb.bin')" disabled>APP2USB</button>
-      <button class="btn" onclick="loadPayload('payloads/ftp.bin')" disabled>FTP</button>
+      <button class="btn" onclick="loadPayload('goldhen.bin')" disabled>GoldHEN</button>
+      <button class="btn" onclick="loadPayload('goldhen.bin')" disabled>APP2USB</button>
+      <button class="btn" onclick="loadPayload('goldhen.bin')" disabled>FTP</button>
     </div>
 
     <h2>🧩 أدوات إضافية</h2>
     <div class="buttons-row">
-      <button class="btn" onclick="loadPayload('payloads/backup.bin')" disabled>PKG BACKUP</button>
-      <button class="btn" onclick="loadPayload('payloads/WebRTE.bin')" disabled>WEB RTE</button>
-      <button class="btn" onclick="loadPayload('payloads/ps4-debug.bin')" disabled>PS4 DEBUG</button>
+      <button class="btn" onclick="loadPayload('goldhen.bin')" disabled>PKG BACKUP</button>
+      <button class="btn" onclick="loadPayload('goldhen.bin')" disabled>WEB RTE</button>
+      <button class="btn" onclick="loadPayload('goldhen.bin')" disabled>PS4 DEBUG</button>
     </div>
 
     <div class="footer">
@@ -157,28 +94,25 @@
   <div id="popup" class="popup"><div id="popup-text">⏳ الرجاء الانتظار...</div></div>
 
   <script>
+    // رسائل منبثقة
     function showPopup(message) {
       const popup = document.getElementById('popup');
       document.getElementById('popup-text').textContent = message;
       popup.style.display = 'block';
       setTimeout(() => { popup.style.display = 'none'; }, 2500);
     }
+    // تقدم وحالة
     function setProgress(p) {
       const clamped = Math.max(0, Math.min(100, Math.round(p)));
       document.getElementById('progress-fill').style.width = clamped + '%';
       document.getElementById('progress-percent').textContent = clamped + '%';
     }
     function setHint(t) { document.getElementById('progress-hint').textContent = t; }
-    function enableButtons() {
-      document.querySelectorAll('.btn').forEach(b => b.disabled = false);
-    }
+    function enableButtons() { document.querySelectorAll('.btn').forEach(b => b.disabled = false); }
 
+    // تخزين في الكاش: بدون مجلدات، فقط الملفات الأساسية اللي ذكرتهم
     async function cacheAssets() {
-      const assets = [
-        'index.html','psfree.mjs','bg.jpg','logo.png',
-        'payloads/goldhen.bin','payloads/app2usb.bin','payloads/ftp.bin',
-        'payloads/backup.bin','payloads/WebRTE.bin','payloads/ps4-debug.bin'
-      ];
+      const assets = ['index.html','psfree.mjs','lapse.mjs','goldhen.bin','cache.html'];
       let done = 0;
       setHint("جاري التخزين في الكاش...");
       for (const url of assets) {
@@ -187,11 +121,61 @@
         let percent = Math.round((done/assets.length)*100);
         setProgress(percent);
         setHint("تم تحميل " + done + " من " + assets.length + " ملف");
-        await new Promise(r=>setTimeout(r,300));
+        await new Promise(r=>setTimeout(r,250));
       }
-      setHint("✅ تم التخزين في الكاش — جاهز للعمل");
+      setHint("✅ تم التخزين في الكاش — تشغيل الاستغلال تلقائيًا…");
+      await startExploitAuto();
     }
 
-    async function sendPayload(buffer) {
+    // تشغيل الاستغلال تلقائيًا
+    async function startExploitAuto() {
       try {
-        await fetch("http://localhost:9020",{method:"POST",body
+        setHint('تحميل سكربت psfree…');
+        await import('./psfree.mjs');
+        setHint('تحميل سكربت lapse…');
+        await import('./lapse.mjs');
+      } catch (e) {
+        console.log('خطأ بتحميل سكربتات الاستغلال:', e);
+      }
+      setProgress(95);
+      await new Promise(r=>setTimeout(r,800));
+      setProgress(100);
+      setHint('BinLoader جاهز — إرسال GoldHEN تلقائيًا…');
+      await loadPayload('goldhen.bin');
+    }
+
+    // إرسال البايلود (تجربة تلقائية على 9020 ثم 9021)
+    async function loadPayload(path) {
+      showPopup('📦 تحميل ' + path);
+      setHint('تحميل ' + path);
+      try {
+        const res = await fetch(path);
+        const payload = await res.arrayBuffer();
+
+        // حاول 9020
+        try {
+          await fetch('http://localhost:9020', { method: 'POST', body: payload });
+          setHint('✅ تم إرسال GoldHEN عبر المنفذ 9020');
+          showPopup('✅ تم الإرسال عبر 9020');
+        } catch (e1) {
+          // جرّب 9021 إذا فشل
+          await fetch('http://localhost:9021', { method: 'POST', body: payload });
+          setHint('✅ تم إرسال GoldHEN عبر المنفذ 9021');
+          showPopup('✅ تم الإرسال عبر 9021');
+        }
+
+        enableButtons();
+      } catch (e) {
+        setHint('❌ فشل الإرسال — تأكد من تشغيل BinLoader');
+        showPopup('❌ فشل الإرسال');
+      }
+    }
+
+    // بدء تلقائي عند فتح الصفحة
+    (async function init(){
+      setProgress(0);
+      await cacheAssets();
+    })();
+  </script>
+</body>
+</html>
